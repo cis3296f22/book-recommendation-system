@@ -22,24 +22,11 @@ For book_id_map.csv:
 https://drive.google.com/uc?id=1CHTAaNwyzvbi1TR08MJrJ03BxA266Yxr
 
 
-- Download the latest binary from the Release section on the right on GitHub.  
-- On the command line uncompress using
+- Download and open the project in Android Studio, click Play
+- If you recieve a SDK error, add the path to your SDK in a file named 
 ```
-tar -xzf  
+local.properties 
 ```
-- On the command line run with
-```
-./hello
-```
-- You will see Hello World! on your terminal. 
+- You will see "Book Recommendation System!" on the screen. 
 
-# How to contribute
 Follow this project board to know the latest status of the project: https://github.com/orgs/cis3296f22/projects/109/views/1
-
-### How to build
-- Use this github repository: ... 
-- Specify what branch to use for a more stable release or for cutting edge development.  
-- Use InteliJ 11
-- Specify additional library to download if needed 
-- What file and target to compile and run. 
-- What is expected to happen when the app start. 
