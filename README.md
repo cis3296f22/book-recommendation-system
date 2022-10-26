@@ -4,6 +4,7 @@ The book recommendation system is a mobile application on the Android operating 
 
 
 ![App UI mockup](https://i.postimg.cc/5yG3BHPL/phone3.jpg)
+
 # How to run
 Provide here instructions on how to use your application.  
 
