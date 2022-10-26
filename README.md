@@ -3,7 +3,7 @@
 The book recommendation system is a mobile application on the Android operating system. It presents to users an interface that they can interact with by indicating whether they enjoyed or disliked a certain book they have read. The application will take note of what a user likes and does not like, and using data scraped from GoodReads.com, will recommend books that best suit the user's taste. When presented with a recommendation from the application, the user will then have the ability to add the recommendation to a "Want To Read" list that serves as a bookmark of books they are interested in, or to "ignore" the recommendation.
 
 
-![This is a screenshot.](images.png)
+![App UI mockup](https://i.postimg.cc/5yG3BHPL/phone3.jpg)
 # How to run
 Provide here instructions on how to use your application.  
 
