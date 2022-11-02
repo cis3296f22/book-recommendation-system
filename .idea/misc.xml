@@ -6,6 +6,7 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.19772033691406252" />
         <entry key="app/src/main/res/layout/fragment_book_list.xml" value="0.22735507246376813" />
         <entry key="app/src/main/res/layout/fragment_recommendation.xml" value="0.22735507246376813" />
+        <entry key="app/src/main/res/layout/fragment_toolbar.xml" value="0.2503402709960938" />
       </map>
     </option>
   </component>
