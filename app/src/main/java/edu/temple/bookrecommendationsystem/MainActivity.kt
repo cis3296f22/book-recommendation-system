@@ -11,6 +11,8 @@ class MainActivity : AppCompatActivity() {
             .beginTransaction()
             .add(R.id.container2, ToolbarFragment())
             .commit()
+
+
         //populate fragment containers in recyclerview
     }
 }
