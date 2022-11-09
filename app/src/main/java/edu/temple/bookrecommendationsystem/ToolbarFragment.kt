@@ -22,7 +22,34 @@ class ToolbarFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_toolbar, container, false)
-        return view
+        return inflater.inflate(R.layout.fragment_toolbar, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        view.findViewById<Button>(R.id.recsButton).setOnClickListener {
+            parentFragmentManager
+                .beginTransaction()
+                .replace(R.id.container1, RecommendationFragment())
+                .commit()
+        }
+        view.findViewById<Button>(R.id.settingsButton).setOnClickListener {
+            parentFragmentManager
+                .beginTransaction()
+                .replace(R.id.container1, SettingsFragment())
+                .commit()
+        }
+        view.findViewById<Button>(R.id.searchButton).setOnClickListener {
+            parentFragmentManager
+                .beginTransaction()
+                .replace(R.id.container1, SearchFragment())
+                .commit()
+        }
+        view.findViewById<Button>(R.id.listsButton).setOnClickListener {
+            parentFragmentManager
+                .beginTransaction()
+                .replace(R.id.container1, BookListsFragment())
+                .commit()
+        }
     }
 }
