@@ -1,14 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BookListsFragment">
+    android:orientation="vertical"
+    tools:context=".BookListsFragment"
+    android:layout_margin="15dp">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Lists Fragment!" />
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="List 1!" />
 
-</FrameLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal"
+        android:layout_marginStart="15dp">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            android:layout_marginEnd="15dp"
+            android:src="@color/cardview_dark_background" />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            android:layout_marginEnd="15dp"
+            android:src="@color/cardview_dark_background" />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            android:src="@color/cardview_dark_background" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="List 2!"
+        android:layout_marginBottom="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="15dp">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            android:layout_marginEnd="15dp"
+            android:src="@color/cardview_dark_background" />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            android:layout_marginEnd="15dp"
+            android:src="@color/cardview_dark_background" />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            android:src="@color/cardview_dark_background" />
+    </LinearLayout>
+
+</LinearLayout>

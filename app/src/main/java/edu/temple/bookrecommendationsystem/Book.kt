@@ -1,5 +1,5 @@
 package edu.temple.bookrecommendationsystem
 
-import java.net.URL
+import androidx.annotation.Nullable
 
-data class Book(val title: String, val author: String, val coverURL: Int)
+data class Book(val title: String, val author: String, val coverURL: Int, @Nullable val userRating: Int)
