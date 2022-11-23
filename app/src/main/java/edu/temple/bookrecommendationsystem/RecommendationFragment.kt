@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.annotation.Nullable
 import org.w3c.dom.Text
 
 /**
@@ -41,9 +42,9 @@ class RecommendationFragment : Fragment() {
         val cover = requireView().findViewById<ImageView>(R.id.recommendationCover)
         val title = requireView().findViewById<TextView>(R.id.recommendationTitle)
         val author = requireView().findViewById<TextView>(R.id.recommendationAuthor)
-        cover.setImageResource(dummyBooks[0].coverURL)
-        title.text = dummyBooks[0].title
-        author.text = dummyBooks[0].author
+        cover.setImageResource(dummyBooks[count].coverURL)
+        title.text = dummyBooks[count].title
+        author.text = dummyBooks[count].author
 
         requireView().findViewById<Button>(R.id.dislike_button).setOnClickListener {
             count++
