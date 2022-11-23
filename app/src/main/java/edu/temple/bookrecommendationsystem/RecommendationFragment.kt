@@ -1,7 +1,5 @@
 package edu.temple.bookrecommendationsystem
 
-import android.annotation.SuppressLint
-import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,14 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.annotation.Nullable
-import org.w3c.dom.Text
 
-/**
- * A simple [Fragment] subclass.
- * Use the [RecommendationFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class RecommendationFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
