@@ -6,6 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
+/*
+A fragment class containing the dark mode toggle. In a production-ready application, this would
+also contain other relevant settings.
+ */
+
 class SettingsFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

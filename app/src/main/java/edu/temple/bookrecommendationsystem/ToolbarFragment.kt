@@ -7,6 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 
+/*
+A fragment class that is always present when the application is running. Allows user to switch
+between the Search, Recommendations, Lists, and Settings fragments to interact with the application.
+ */
+
 class ToolbarFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
