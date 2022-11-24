@@ -9,6 +9,10 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 
+/*
+A fragment class to display recommended books to the user that they can "swipe" left or right on.
+ */
+
 class RecommendationFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,15 +28,10 @@ class RecommendationFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         var count = 0
-        val dummyBooks = arrayOf(Book("Red Book", "Red Author", R.color.red),
-            Book("Blue Book", "Blue Author", R.color.blue),
-            Book("Green Book", "Green Author", R.color.green),
-            Book("Yellow Book", "Yellow Author", R.color.yellow),
-            Book("Cyan Book", "Cyan Author", R.color.cyan),
-            Book("Magenta Book", "Magenta Author", R.color.magenta))
         val cover = requireView().findViewById<ImageView>(R.id.recommendationCover)
         val title = requireView().findViewById<TextView>(R.id.recommendationTitle)
         val author = requireView().findViewById<TextView>(R.id.recommendationAuthor)
+        val dummyBooks = Application().dummyBooks
         cover.setImageResource(dummyBooks[count].coverURL)
         title.text = dummyBooks[count].title
         author.text = dummyBooks[count].author

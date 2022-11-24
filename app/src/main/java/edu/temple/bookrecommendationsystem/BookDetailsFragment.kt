@@ -7,11 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 
 /*
-A fragment class that composes the Lists tab in the application and contains two BookListFragments -
-"Want to Read" and "Previously Read"
+A fragment class to display a book cover, title, author, and user rating (if given).
+Instance will be created when user clicks on a book from one of their lists or search results.
  */
 
-class BookListsFragment : Fragment() {
+class BookDetailsFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -21,6 +21,10 @@ class BookListsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_book_lists, container, false)
+        return inflater.inflate(R.layout.fragment_book_details, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
     }
 }
