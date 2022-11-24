@@ -5,12 +5,14 @@
       <map>
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1975" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.19772033691406252" />
+        <entry key="app/src/main/res/layout/fragment_book_details.xml" value="0.20260416666666667" />
         <entry key="app/src/main/res/layout/fragment_book_list.xml" value="0.22735507246376813" />
-        <entry key="app/src/main/res/layout/fragment_book_lists.xml" value="0.15729166666666666" />
+        <entry key="app/src/main/res/layout/fragment_book_lists.xml" value="0.2614418218943698" />
         <entry key="app/src/main/res/layout/fragment_recommendation.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_search.xml" value="0.15729166666666666" />
-        <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.5764383951822917" />
+        <entry key="app/src/main/res/layout/fragment_search.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.351434326171875" />
         <entry key="app/src/main/res/layout/fragment_toolbar.xml" value="0.2503402709960938" />
+        <entry key="app/src/main/res/layout/search_result_book.xml" value="0.310345458984375" />
       </map>
     </option>
   </component>
