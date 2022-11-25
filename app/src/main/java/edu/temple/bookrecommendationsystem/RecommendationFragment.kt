@@ -28,9 +28,9 @@ class RecommendationFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         var count = 0
-        val cover = requireView().findViewById<ImageView>(R.id.recommendationCover)
-        val title = requireView().findViewById<TextView>(R.id.recommendationTitle)
-        val author = requireView().findViewById<TextView>(R.id.recommendationAuthor)
+        val cover = requireView().findViewById<ImageView>(R.id.recommendation_cover)
+        val title = requireView().findViewById<TextView>(R.id.recommendation_title)
+        val author = requireView().findViewById<TextView>(R.id.recommendation_author)
         val dummyBooks = Application().dummyBooks
         cover.setImageResource(dummyBooks[count].coverURL)
         title.text = dummyBooks[count].title
@@ -38,7 +38,7 @@ class RecommendationFragment : Fragment() {
 
         requireView().findViewById<Button>(R.id.dislike_button).setOnClickListener {
             count++
-            val index = count % dummyBooks.size
+            var index = count % dummyBooks.size
             cover.setImageResource(dummyBooks[index].coverURL)
             title.text = dummyBooks[index].title
             author.text = dummyBooks[index].author
@@ -46,10 +46,24 @@ class RecommendationFragment : Fragment() {
 
         requireView().findViewById<Button>(R.id.like_button).setOnClickListener {
             count++
-            val index = count % dummyBooks.size
+            var index = count % dummyBooks.size
             cover.setImageResource(dummyBooks[index].coverURL)
             title.text = dummyBooks[index].title
             author.text = dummyBooks[index].author
+            Application().wantToRead.add(dummyBooks[index])
+        }
+
+        requireView().findViewById<ImageView>(R.id.recommendation_cover).setOnClickListener {
+            val fragment = BookDetailsFragment()
+            val bundle = Bundle()
+            bundle.putString("title", dummyBooks[count].title)
+            bundle.putString("author", dummyBooks[count].author)
+            bundle.putInt("cover", dummyBooks[count].coverURL)
+            fragment.arguments = bundle
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.container1, fragment)
+                .addToBackStack(null)
+                .commit()
         }
 
     }
