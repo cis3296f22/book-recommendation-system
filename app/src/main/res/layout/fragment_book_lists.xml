@@ -11,11 +11,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:text="List 1!" />
+        android:text="Want to Read" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="150dp"
         android:layout_marginBottom="10dp"
         android:orientation="horizontal"
         android:layout_marginStart="15dp">
@@ -41,7 +41,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="List 2!"
+        android:text="Previously Read"
         android:layout_marginBottom="10dp"/>
 
     <LinearLayout
