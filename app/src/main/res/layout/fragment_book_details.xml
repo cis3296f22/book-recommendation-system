@@ -32,8 +32,7 @@
         android:layout_gravity="center"
         android:gravity="center"
         android:textSize="36sp"
-        android:text="Title"
-        android:textColor="@color/black" />
+        android:text="@string/title" />
 
     <TextView
         android:layout_width="match_parent"
@@ -43,8 +42,7 @@
         android:layout_gravity="center"
         android:gravity="center"
         android:textSize="24sp"
-        android:text="Author"
-        android:textStyle="italic"
-        android:textColor="@color/black" />
+        android:text="@string/author"
+        android:textStyle="italic" />
 
 </LinearLayout>

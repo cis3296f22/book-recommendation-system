@@ -12,6 +12,5 @@ class MainActivity : AppCompatActivity() {
             .add(R.id.container1, RecommendationFragment())
             .add(R.id.container2, ToolbarFragment())
             .commit()
-        //populate fragment containers in recyclerview
     }
 }
