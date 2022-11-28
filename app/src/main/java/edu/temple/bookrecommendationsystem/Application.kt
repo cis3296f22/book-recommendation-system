@@ -10,13 +10,9 @@ import android.app.Application
  */
 class Application: Application() {
     object Singleton: Application() {
-        init {
-            println("Global variables initialized")
-        }
-
         var wantToRead = ArrayList<Book>()
         var previouslyRead = ArrayList<Book>()
-        val dummyBooks = arrayOf(
+        val dummyBooks = arrayListOf(
             Book("Red Book", "Red Author", R.color.red),
             Book("Blue Book", "Blue Author", R.color.blue),
             Book("Green Book", "Green Author", R.color.green),

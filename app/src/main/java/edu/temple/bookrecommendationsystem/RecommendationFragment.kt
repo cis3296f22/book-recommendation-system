@@ -67,18 +67,5 @@ class RecommendationFragment : Fragment() {
             author.text = dummyBooks[index].author
         }
 
-        requireView().findViewById<ImageView>(R.id.recommendation_cover).setOnClickListener {
-            val fragment = BookDetailsFragment()
-            val bundle = Bundle()
-            bundle.putString("title", dummyBooks[count].title)
-            bundle.putString("author", dummyBooks[count].author)
-            bundle.putInt("cover", dummyBooks[count].coverURL)
-            fragment.arguments = bundle
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.container1, fragment)
-                .addToBackStack(null)
-                .commit()
-        }
-
     }
 }

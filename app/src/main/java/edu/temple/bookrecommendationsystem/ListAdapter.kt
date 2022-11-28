@@ -4,23 +4,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 /*
 Adapter class that maps a list of search results to a RecyclerView to display to user.
  */
 
-class SearchAdapter(_results : ArrayList<Book>, _onClickFunc : (Book) -> Unit) :
-    RecyclerView.Adapter<SearchAdapter.ImageViewHolder>() {
+class ListAdapter(_results: ArrayList<Book>, _onClickFunc: (Book) -> Unit) :
+    RecyclerView.Adapter<ListAdapter.ImageViewHolder>() {
 
     private val results = _results
     private val onClickFunction = _onClickFunc
 
     inner class ImageViewHolder(_view : View) : RecyclerView.ViewHolder(_view){
-        val bookCover = _view.findViewById<ImageView>(R.id.search_result_book_cover)!!
-        val bookTitle = _view.findViewById<TextView>(R.id.search_result_title)!!
-        val bookAuthor = _view.findViewById<TextView>(R.id.search_result_author)!!
+        val bookCover = _view.findViewById<ImageView>(R.id.list_fragment_book_cover)!!
         lateinit var book: Book
         init {
             _view.setOnClickListener{onClickFunction(book)}
@@ -29,14 +26,12 @@ class SearchAdapter(_results : ArrayList<Book>, _onClickFunc : (Book) -> Unit) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageViewHolder {
         val layout = LayoutInflater.from(parent.context)
-            .inflate(R.layout.search_result_book, parent, false)
+            .inflate(R.layout.list_fragment_book, parent, false)
         return ImageViewHolder(layout)
     }
 
-    override fun onBindViewHolder(holder: SearchAdapter.ImageViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ListAdapter.ImageViewHolder, position: Int) {
         holder.bookCover.setImageResource(results[position].coverURL)
-        holder.bookTitle.text = results[position].title
-        holder.bookAuthor.text = results[position].author
         holder.book = results[position]
     }
 
