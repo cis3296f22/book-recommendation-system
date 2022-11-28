@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 
 /*
@@ -14,17 +15,24 @@ A fragment class to display a book cover, title, author, and user rating (if giv
 Instance will be created when user clicks on a book from one of their lists or search results.
  */
 
-class BookDetailsFragment : Fragment() {
+class BookDetailsFragment(_type: Int) : Fragment() {
 
     lateinit var title: String
     lateinit var author: String
-    var cover: Int = 0
+    lateinit var book: Book
+    var cover = 0
+    var type = _type
+    // 0 = search; 1 = want; 2 = prev
+    // search - button1 = read, button2 = want
+    // want - button1 = remove, button2 = prev
+    // prev - button1 = remove, button2 = want
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         title = arguments?.get("title") as String
         author = arguments?.get("author") as String
         cover = arguments?.get("cover") as Int
+        book = Book(title, author, cover)
     }
 
     override fun onCreateView(
@@ -37,6 +45,58 @@ class BookDetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val button1 = view.findViewById<Button>(R.id.details_button_1)
+        val button2 = view.findViewById<Button>(R.id.details_button_2)
+        val prev = "MARK AS READ"
+        val want = "WANT TO READ"
+        val remove = "REMOVE FROM LIST"
+        when (type) {
+            0 -> {
+                button1.text = prev
+                button1.setOnClickListener {
+                    Application.Singleton.previouslyRead.add(book)
+                    Toast.makeText(requireContext(),
+                        "Successfully added to previously read list!",Toast.LENGTH_SHORT).show()
+                }
+                button2.text = want
+                button2.setOnClickListener {
+                    Application.Singleton.wantToRead.add(book)
+                    Toast.makeText(requireContext(),
+                        "Successfully added to Want to Read!",Toast.LENGTH_SHORT).show()
+                }
+            }
+            1 -> {
+                button1.text = remove
+                button1.setOnClickListener {
+                    Application.Singleton.wantToRead.remove(book)
+                    Toast.makeText(requireContext(),
+                        "Successfully removed from Want To Read!",Toast.LENGTH_SHORT).show()
+                }
+                button2.text = prev
+                button2.setOnClickListener {
+                    Application.Singleton.wantToRead.remove(book)
+                    Application.Singleton.previouslyRead.add(book)
+                    Toast.makeText(requireContext(),
+                        "Successfully added to previously read list!",Toast.LENGTH_SHORT).show()
+                }
+            }
+            2 -> {
+                button1.text = remove
+                button1.setOnClickListener {
+                    Application.Singleton.previouslyRead.remove(book)
+                    Toast.makeText(requireContext(),
+                        "Successfully removed from previously read list!",Toast.LENGTH_SHORT).show()
+                }
+                button2.text = want
+                button2.setOnClickListener {
+                    Application.Singleton.previouslyRead.remove(book)
+                    Application.Singleton.wantToRead.add(book)
+                    Toast.makeText(requireContext(),
+                        "Successfully moved to Want to Read!",Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+
         view.findViewById<ImageView>(R.id.details_cover).setImageResource(cover)
         view.findViewById<TextView>(R.id.details_title).text = title
         view.findViewById<TextView>(R.id.details_author).text = author
