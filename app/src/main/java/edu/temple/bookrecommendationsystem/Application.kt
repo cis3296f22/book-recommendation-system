@@ -12,11 +12,11 @@ class Application: Application() {
     var wantToRead = ArrayList<Book>()
     var previouslyRead = ArrayList<Book>()
     val dummyBooks = arrayOf(
-        Book("Red Book", "Red Author", R.color.red, 0),
-        Book("Blue Book", "Blue Author", R.color.blue, 0),
-        Book("Green Book", "Green Author", R.color.green, 0),
-        Book("Yellow Book", "Yellow Author", R.color.yellow, 0),
-        Book("Cyan Book", "Cyan Author", R.color.cyan, 0),
-        Book("Magenta Book", "Magenta Author", R.color.magenta, 0)
+        Book("Red Book", "Red Author", R.color.red),
+        Book("Blue Book", "Blue Author", R.color.blue),
+        Book("Green Book", "Green Author", R.color.green),
+        Book("Yellow Book", "Yellow Author", R.color.yellow),
+        Book("Cyan Book", "Cyan Author", R.color.cyan),
+        Book("Magenta Book", "Magenta Author", R.color.magenta)
     )
 }
