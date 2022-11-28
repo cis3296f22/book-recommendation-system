@@ -1,21 +1,23 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[115]:
 
 
 # still need to convert the liked_books csv into a list so its not hard coded. & create the really long liked books csv to do this--if we're lazy we could just grab the one from the open source repo
 import csv
 import pandas as pd
-book_info = pd.read_csv("liked_books.csv")
-liked_books = book_info['book_id'].tolist()
+
+def generate_liked_books():
+    book_info = pd.read_csv("liked_books.csv")
+    liked_books = book_info['book_id'].tolist()
+    for i in range(0, len(liked_books)):
+        liked_books[i] = str(liked_books[i])
+    return liked_books
+#liked_books = ['12961964', '84979', '29983711', '29044', '17333794', '18143977', '2865', '6457081','12837725']
 
 
-display(liked_books)
-liked_books = ['12961964', '84979', '29983711', '29044', '17333794', '18143977', '2865', '6457081','12837725']
-
-
-# In[2]:
+# In[116]:
 
 
 def create_book_mapping():
@@ -30,14 +32,17 @@ def create_book_mapping():
     return book_mapping
 
 
-# In[7]:
+# In[117]:
 
 
 def get_overlap_users():
     overlap_users = set()
+    count = 0
     # overlap_users contains a list of users who liked the books
     with open("goodreads_interactions.csv", "r") as f:
         while True:
+            if count > 10000000:
+                break
             line = f.readline()
             if not line:
                 break
@@ -53,17 +58,21 @@ def get_overlap_users():
             book_id = book_mapping[csv_id]
             if book_id in liked_books and rating >=4:
                 overlap_users.add(user_id)
+            count+=1
     return overlap_users
 
 
-# In[8]:
+# In[118]:
 
 
 def create_recs(overlap_users, book_mapping):
     recs = []
+    count = 0
     # recs contains books that users who liked similar books have read.
     with open("goodreads_interactions.csv", "r") as f:
         while True:
+            if count > 10000000:
+                break
             line = f.readline()
             if not line:
                 break
@@ -71,11 +80,13 @@ def create_recs(overlap_users, book_mapping):
 
             if user_id in overlap_users:
                 book_id = book_mapping[csv_id]
-                recs.append([user_id, book_id, rating])
+                recs.append([user_id, book_id, rating])            
+            count+=1
+        
     return recs
 
 
-# In[9]:
+# In[119]:
 
 
 def update_recs(recs):
@@ -95,17 +106,7 @@ def update_recs(recs):
     return all_recs
 
 
-# In[10]:
-
-
-book_mapping = create_book_mapping()
-overlap_users = get_overlap_users()
-recs = create_recs(overlap_users, book_mapping)
-all_recs = update_recs(recs)
-popular_recs = all_recs[all_recs["book_count"] > 75].sort_values("score", ascending=False)
-
-
-# In[11]:
+# In[123]:
 
 
 def clickable(val):
@@ -114,12 +115,26 @@ def clickable(val):
 def cover(val):
     return '<img src="{}" width=60></image>'.format(val)
 
-best_recs = popular_recs[~popular_recs["book_id"].isin(liked_books)].head(10)
+def generate_recs():
+    liked_books = generate_liked_books()
+    book_mapping = create_book_mapping()
+    overlap_users = get_overlap_users()
+    recs = create_recs(overlap_users, book_mapping)
+    all_recs = update_recs(recs)
+    popular_recs = all_recs[all_recs["book_count"] > 75].sort_values("score", ascending=False)
+    best_recs = popular_recs[~popular_recs["book_id"].isin(liked_books)].head(10)
+    return best_recs
+
+
+# In[124]:
+
+
+best_recs = generate_recs()
 display(best_recs.style.format({'cover':cover, 'url': clickable}))
 
 
-# In[12]:
+# In[ ]:
 
 
-display(best_recs)
+
 
