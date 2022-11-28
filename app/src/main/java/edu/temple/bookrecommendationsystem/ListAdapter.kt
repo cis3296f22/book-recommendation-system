@@ -7,7 +7,7 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 
 /*
-Adapter class that maps a list of search results to a RecyclerView to display to user.
+Adapter class that maps a list of books to a horizontal RecyclerView to display to user.
  */
 
 class ListAdapter(_results: ArrayList<Book>, _onClickFunc: (Book) -> Unit) :

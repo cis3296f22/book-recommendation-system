@@ -32,8 +32,8 @@ class BookListsFragment : Fragment() {
         val wantRecyclerView = requireView().findViewById<RecyclerView>(R.id.want_recycler_view)
         wantRecyclerView.layoutManager = LinearLayoutManager(requireContext(),
             LinearLayoutManager.HORIZONTAL, false)
-        wantRecyclerView.adapter = ListAdapter(Application.Singleton.dummyBooks) {
-            val fragment = BookDetailsFragment()
+        wantRecyclerView.adapter = ListAdapter(Application.Singleton.wantToRead) {
+            val fragment = BookDetailsFragment(1)
             val bundle = Bundle()
             bundle.putString("title", it.title)
             bundle.putString("author", it.author)
@@ -48,8 +48,8 @@ class BookListsFragment : Fragment() {
         val prevRecyclerView = requireView().findViewById<RecyclerView>(R.id.prev_recycler_view)
         prevRecyclerView.layoutManager = LinearLayoutManager(requireContext(),
             LinearLayoutManager.HORIZONTAL, false)
-        prevRecyclerView.adapter = ListAdapter(Application.Singleton.dummyBooks) {
-            val fragment = BookDetailsFragment()
+        prevRecyclerView.adapter = ListAdapter(Application.Singleton.previouslyRead) {
+            val fragment = BookDetailsFragment(2)
             val bundle = Bundle()
             bundle.putString("title", it.title)
             bundle.putString("author", it.author)
