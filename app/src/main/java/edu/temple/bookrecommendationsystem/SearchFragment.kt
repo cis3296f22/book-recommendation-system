@@ -41,7 +41,7 @@ class SearchFragment : Fragment() {
             val query = requireView().findViewById<EditText>(R.id.search_edit_text).text
 
             val py = Python.getInstance()
-            val showTest = py.getModule("book_search_refactored")
+            val showTest = py.getModule("book_Search_refactored")
             val test = showTest.callAttr("driver")
             //TODO: make so user cannot put a new line in the search text box
             //TODO: call search w query. parse results and put array in place of Application.Singleton.dummyBooks below
