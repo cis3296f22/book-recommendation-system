@@ -19,7 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/recommendation_title"
-        android:text="Book Title"
+        android:text="@string/title"
         android:textSize="36sp"
         android:layout_gravity="center"
         />
@@ -28,7 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/recommendation_author"
-        android:text="Book Author"
+        android:text="@string/author"
         android:textStyle="italic"
         android:textSize="20sp"
         android:layout_gravity="center"
@@ -43,7 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:id="@+id/dislike_button"
-            android:text ="NOT INTERESTED"
+            android:text ="@string/not_interested"
             android:layout_marginEnd="20dp"
             android:layout_weight="1" />
 
@@ -51,7 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:id="@+id/like_button"
-            android:text="WANT TO READ"
+            android:text="@string/want_to_read_caps"
             android:layout_weight="1" />
 
     </LinearLayout>
@@ -61,6 +61,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/prev_read_button"
         android:layout_gravity="center"
-        android:text="PREVIOUSLY READ" />
+        android:text="@string/previously_read_caps" />
 
 </LinearLayout>
