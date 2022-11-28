@@ -47,16 +47,18 @@ class BookDetailsFragment(_type: Int) : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val button1 = view.findViewById<Button>(R.id.details_button_1)
         val button2 = view.findViewById<Button>(R.id.details_button_2)
-
+        val prev = "MARK AS READ"
+        val want = "WANT TO READ"
+        val remove = "REMOVE FROM LIST"
         when (type) {
             0 -> {
-                button1.text = "PREV"
+                button1.text = prev
                 button1.setOnClickListener {
                     Application.Singleton.previouslyRead.add(book)
                     Toast.makeText(requireContext(),
                         "Successfully added to previously read list!",Toast.LENGTH_SHORT).show()
                 }
-                button2.text = "WANT"
+                button2.text = want
                 button2.setOnClickListener {
                     Application.Singleton.wantToRead.add(book)
                     Toast.makeText(requireContext(),
@@ -64,13 +66,13 @@ class BookDetailsFragment(_type: Int) : Fragment() {
                 }
             }
             1 -> {
-                button1.text = "REMOVE"
+                button1.text = remove
                 button1.setOnClickListener {
                     Application.Singleton.wantToRead.remove(book)
                     Toast.makeText(requireContext(),
                         "Successfully removed from Want To Read!",Toast.LENGTH_SHORT).show()
                 }
-                button2.text = "PREV"
+                button2.text = prev
                 button2.setOnClickListener {
                     Application.Singleton.wantToRead.remove(book)
                     Application.Singleton.previouslyRead.add(book)
@@ -79,13 +81,13 @@ class BookDetailsFragment(_type: Int) : Fragment() {
                 }
             }
             2 -> {
-                button1.text = "REMOVE"
+                button1.text = remove
                 button1.setOnClickListener {
                     Application.Singleton.previouslyRead.remove(book)
                     Toast.makeText(requireContext(),
                         "Successfully removed from previously read list!",Toast.LENGTH_SHORT).show()
                 }
-                button2.text = "WANT"
+                button2.text = want
                 button2.setOnClickListener {
                     Application.Singleton.previouslyRead.remove(book)
                     Application.Singleton.wantToRead.add(book)
