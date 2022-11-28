@@ -41,8 +41,8 @@ class SearchFragment : Fragment() {
             val query = requireView().findViewById<EditText>(R.id.search_edit_text).text
 
             val py = Python.getInstance()
-            val showTest = py.getModule("book_Search_refactored")
-            val test = showTest.callAttr("driver")
+            val pyMod = py.getModule("book_Search_refactored")
+            val books = pyMod.callAttr("main", query)
             //TODO: make so user cannot put a new line in the search text box
             //TODO: call search w query. parse results and put array in place of Application.Singleton.dummyBooks below
             recyclerView.adapter = SearchAdapter(Application.Singleton.dummyBooks) {
@@ -57,7 +57,6 @@ class SearchFragment : Fragment() {
                     .addToBackStack(null)
                     .commit()
             }
-            Toast.makeText(this.context, test.toString(), Toast.LENGTH_LONG).show()
         }
     }
 
