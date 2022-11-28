@@ -37,7 +37,7 @@ class SearchFragment : Fragment() {
             val query = requireView().findViewById<EditText>(R.id.search_edit_text).text
             //TODO: make so user cannot put a new line in the search text box
             //TODO: call search w query. parse results and put array in place of Application().dummyBooks below
-            recyclerView.adapter = SearchAdapter(Application().dummyBooks) {
+            recyclerView.adapter = SearchAdapter(Application.Singleton.dummyBooks) {
                 val fragment = BookDetailsFragment()
                 val bundle = Bundle()
                 bundle.putString("title", it.title)

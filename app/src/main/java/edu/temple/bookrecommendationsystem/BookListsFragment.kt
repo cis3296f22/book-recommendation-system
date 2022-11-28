@@ -1,6 +1,7 @@
 package edu.temple.bookrecommendationsystem
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -26,5 +27,6 @@ class BookListsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        Log.d("Want to read list: ", Application.Singleton.wantToRead[0].title)
     }
 }
