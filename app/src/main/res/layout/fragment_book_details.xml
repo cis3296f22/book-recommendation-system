@@ -14,7 +14,7 @@
         android:layout_height="50dp"
         android:layout_gravity="start"
         android:layout_marginTop="10dp"
-        android:text="BACK" />
+        android:text="@string/back" />
 
     <ImageView
         android:id="@+id/details_cover"
@@ -57,7 +57,7 @@
             android:layout_height="50dp"
             android:layout_weight="1"
             android:layout_marginEnd="15dp"
-            android:text="BUTTON1" />
+            android:text="@string/button1" />
 
         <Button
             android:id="@+id/details_button_2"
@@ -65,7 +65,7 @@
             android:layout_height="50dp"
             android:layout_weight="1"
             android:layout_marginStart="15dp"
-            android:text="BUTTON2" />
+            android:text="@string/button2" />
 
     </LinearLayout>
 

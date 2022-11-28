@@ -12,27 +12,27 @@
         android:layout_height="match_parent"
         android:id="@+id/searchButton"
         android:layout_weight="1"
-        android:text="SEARCH" />
+        android:text="@string/search_toolbar" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:id="@+id/recsButton"
         android:layout_weight="1"
-        android:text="RECS" />
+        android:text="@string/recs_toolbar" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:id="@+id/listsButton"
         android:layout_weight="1"
-        android:text="LISTS" />
+        android:text="@string/lists_toolbar" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:id="@+id/settingsButton"
         android:layout_weight="1"
-        android:text="SETTINGS" />
+        android:text="@string/settings_toolbar" />
 
 </LinearLayout>
