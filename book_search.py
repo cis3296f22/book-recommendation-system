@@ -6,77 +6,17 @@
 
 # Create search engine!
 # Goodreads json file is too large to open entirely using a pandas Dataframe. Instead, we first read it line by line:
-import gzip
 import csv
-with gzip.open("goodreads_books.json.gz", 'r') as f:
-    line = f.readline()
+import pandas as pd
 
 
 # In[5]:
 
 
-import json
-json.loads(line)
-
-
-# In[6]:
-
-
-# Get most important fields from the goodreads json file. These fields include the book ID, title, number of ratings, url, and cover (url).
-def parse_books(line):
-    book = json.loads(line)
-    return {
-        "book_id": book["book_id"],
-        "title": book["title_without_series"],
-        "ratings": book["ratings_count"],
-        "url": book["url"],
-        "cover": book["image_url"]
-    }
-
-
-# In[7]:
-
-
-# Narrow down search by only including books for which there are at least 20 ratings. (Books with less than 20 ratings are obviously not very popular and thus are not necessary inclusions in our search engine).
-# Append all of the books that match these requirements into a list called title.
-def get_rated_books():
-    titles = []
-    with gzip.open("goodreads_books.json.gz", 'r') as f:
-        while True:
-            line = f.readline()
-            if not line:
-                break
-            fields = parse_books(line)
-            try:
-                ratings = int(fields["ratings"])
-            except ValueError:
-                continue
-            if ratings > 100:
-                titles.append(fields)
-    return titles
-
-
-# In[21]:
-
-
-# NOW we can use a pandas DataFrame
-titles = get_rated_books()
-def make_book_fields(titles):
-    import pandas as pd
-    with open('book_fields.csv', 'w', encoding='utf-8') as csvfile:
-        writer = csv.DictWriter(csvfile, fieldnames=["book_id", "title", "ratings", "url", "cover"])
-        writer.writeheader()
-        writer.writerows(titles)
-
-
-# In[22]:
-
-
-make_book_fields(titles)
 book_titles = pd.read_csv('book_fields.csv')
 
 
-# In[13]:
+# In[6]:
 
 
 def modify_book_titles(book_titles):
@@ -88,13 +28,13 @@ def modify_book_titles(book_titles):
     return book_titles
 
 
-# In[15]:
+# In[7]:
 
 
 book_titles = modify_book_titles(book_titles)
 
 
-# In[16]:
+# In[8]:
 
 
 def clickable(val):
@@ -131,7 +71,7 @@ def search(query, vectorizer):
     return results.head(5)#.style.format({'cover':cover, 'url': clickable})
 
 
-# In[17]:
+# In[9]:
 
 
 liked_books = []
@@ -176,7 +116,7 @@ def search_loop():
         
 
 
-# In[18]:
+# In[12]:
 
 
 user_id = search_loop()
