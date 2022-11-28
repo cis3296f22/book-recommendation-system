@@ -38,7 +38,7 @@ class SearchFragment : Fragment() {
             //TODO: make so user cannot put a new line in the search text box
             //TODO: call search w query. parse results and put array in place of Application.Singleton.dummyBooks below
             recyclerView.adapter = SearchAdapter(Application.Singleton.dummyBooks) {
-                val fragment = BookDetailsFragment()
+                val fragment = BookDetailsFragment(0)
                 val bundle = Bundle()
                 bundle.putString("title", it.title)
                 bundle.putString("author", it.author)
