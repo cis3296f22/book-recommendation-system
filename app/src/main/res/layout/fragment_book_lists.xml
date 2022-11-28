@@ -4,69 +4,37 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".BookListsFragment"
-    android:layout_margin="15dp">
+    tools:context=".BookListsFragment">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:text="Want to Read" />
+        android:text="Want to Read"
+        android:layout_marginStart="10dp"
+        android:textSize="18sp"
+        />
 
-    <LinearLayout
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:layout_marginBottom="10dp"
         android:orientation="horizontal"
-        android:layout_marginStart="15dp">
-
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="150dp"
-            android:layout_marginEnd="15dp"
-            android:src="@color/cardview_dark_background" />
-
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="150dp"
-            android:layout_marginEnd="15dp"
-            android:src="@color/cardview_dark_background" />
-
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="150dp"
-            android:src="@color/cardview_dark_background" />
-    </LinearLayout>
+        android:id="@+id/want_recycler_view"
+        android:layout_marginBottom="15dp"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Previously Read"
+        android:layout_marginStart="10dp"
+        android:textSize="18sp"
         android:layout_marginBottom="10dp"/>
 
-    <LinearLayout
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="150dp"
         android:orientation="horizontal"
-        android:layout_marginBottom="10dp"
-        android:layout_marginStart="15dp">
-
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="150dp"
-            android:layout_marginEnd="15dp"
-            android:src="@color/cardview_dark_background" />
-
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="150dp"
-            android:layout_marginEnd="15dp"
-            android:src="@color/cardview_dark_background" />
-
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="150dp"
-            android:src="@color/cardview_dark_background" />
-    </LinearLayout>
+        android:id="@+id/prev_recycler_view"/>
 
 </LinearLayout>

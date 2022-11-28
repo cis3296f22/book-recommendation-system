@@ -31,14 +31,13 @@ class SearchFragment : Fragment() {
 
         val recyclerView = requireView().findViewById<RecyclerView>(R.id.search_results_recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(this.context)
-        recyclerView.adapter = SearchAdapter(arrayOf()) {}
+        recyclerView.adapter = SearchAdapter(arrayListOf()) {}
 
         requireView().findViewById<ImageButton>(R.id.search_button).setOnClickListener {
             val query = requireView().findViewById<EditText>(R.id.search_edit_text).text
             //TODO: make so user cannot put a new line in the search text box
-
-            //TODO: call search w query. parse results and put array in place of Application().dummyBooks below
-            recyclerView.adapter = SearchAdapter(Application().dummyBooks) {
+            //TODO: call search w query. parse results and put array in place of Application.Singleton.dummyBooks below
+            recyclerView.adapter = SearchAdapter(Application.Singleton.dummyBooks) {
                 val fragment = BookDetailsFragment()
                 val bundle = Bundle()
                 bundle.putString("title", it.title)
@@ -50,7 +49,6 @@ class SearchFragment : Fragment() {
                     .addToBackStack(null)
                     .commit()
             }
-            Toast.makeText(this.context, query, Toast.LENGTH_LONG).show()
         }
     }
 
