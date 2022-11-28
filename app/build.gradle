@@ -17,6 +17,13 @@ android {
         ndk {
             abiFilters "armeabi-v7a", "arm64-v8a", "x86", "x86_64"
         }
+        python{
+            pip{
+                install "numpy"
+                install "pandas"
+                install "scikit-learn"
+            }
+        }
     }
 
     buildTypes {
@@ -32,6 +39,7 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    namespace 'edu.temple.bookrecommendationsystem'
 }
 
 dependencies {
