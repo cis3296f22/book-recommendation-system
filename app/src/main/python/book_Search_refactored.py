@@ -46,3 +46,4 @@ def search(query):
     results_csv = results.head(5).to_csv("results.csv")
     return results_csv
 
+#RETURNED CSV: book_id, title, ratings (irrelevant), url, image url, modified_title (irrelevant)
