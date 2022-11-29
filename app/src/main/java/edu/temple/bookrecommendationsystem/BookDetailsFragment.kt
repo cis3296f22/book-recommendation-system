@@ -9,6 +9,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.squareup.picasso.Picasso
+import android.graphics.Bitmap
+import com.bumptech.glide.Glide
+
 
 /*
 A fragment class to display a book cover, title, author, and user rating (if given).
@@ -96,10 +100,16 @@ class BookDetailsFragment(_type: Int) : Fragment() {
         }
 
         view.findViewById<ImageView>(R.id.details_cover).setImageResource(cover)
+        Picasso.get().load("https://images.gr-assets.com/books/1333576379m/820816.jpg").into(view.findViewById<ImageView>(R.id.details_cover))
         view.findViewById<TextView>(R.id.details_title).text = title
         view.findViewById<Button>(R.id.details_close_button).setOnClickListener {
             parentFragmentManager.popBackStack()
         }
+        val myImage: ImageView = view.findViewById<ImageView>(R.id.details_cover)
+        val x:Bitmap? = Application.Singleton.imagePull("https://images.gr-assets.com/books/1333576379m/820816.jpg")
+        view.findViewById<ImageView>(R.id.details_cover).setImageBitmap(x)
+        Application.Singleton.imagePullAlpha("https://images.gr-assets.com/books/1333576379m/820816.jpg", view.findViewById<ImageView>(R.id.details_cover))
+        Glide.with(this).load("https://images.gr-assets.com/books/1333576379m/820816.jpg").into(myImage)
     }
 
 }

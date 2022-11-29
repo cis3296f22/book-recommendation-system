@@ -1,5 +1,12 @@
 package edu.temple.bookrecommendationsystem
 
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.util.Log
+import android.widget.ImageView
+import com.squareup.picasso.Picasso
+
+
 /*
     class to store global variables to use throughout the application
 
@@ -30,6 +37,23 @@ class Application {
                 books.add(Book(elements[i], elements[i+1].toInt()))
             }
             return books
+        }
+        fun imagePull(url: String):Bitmap? {
+            var img: Bitmap? = null
+            try {
+                val inp = java.net.URL(url).openStream()
+                img = BitmapFactory.decodeStream(inp)
+            }
+            catch (e: Exception) {
+                Log.e("Error Message", e.message.toString())
+                e.printStackTrace()
+            }
+            return img
+        }
+
+        fun imagePullAlpha(url: String, imgview: ImageView) {
+            Picasso.get().load(url).fit().into(imgview)
+
         }
     }
 }
