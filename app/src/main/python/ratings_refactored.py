@@ -73,7 +73,8 @@ def update_recs(recs):
     rec['book_id'] = rec['book_id'].astype(str)
     top_recs = rec['book_id'].value_counts().head(10) #counts up number of times each book occurred. shows top books
     top_recs = top_recs.index.values
-    book_titles = pd.read_csv("book_fields.csv")
+    bookFieldsFilename = join(dirname(__file__), "book_fields.csv")
+    book_titles = pd.read_csv(bookFieldsFilename)
     book_titles["book_id"] = book_titles["book_id"].astype(str)
     book_titles[book_titles["book_id"].isin(top_recs)]
     all_recs = rec["book_id"].value_counts()
