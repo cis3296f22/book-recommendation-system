@@ -14,9 +14,6 @@ A fragment class that composes the Lists tab in the application and contains two
  */
 
 class BookListsFragment : Fragment() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

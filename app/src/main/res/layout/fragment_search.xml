@@ -18,7 +18,8 @@ android:orientation="vertical">
             android:layout_height="match_parent"
             android:id="@+id/search_edit_text"
             android:layout_weight="1"
-            android:hint="@string/search"/>
+            android:hint="@string/search"
+            android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz?![]()-,./+=@#$%^*"/>
 
         <ImageButton
             android:id="@+id/search_button"

@@ -1,17 +1,18 @@
 package edu.temple.bookrecommendationsystem
 
-import android.app.Application
-
 /*
     class to store global variables to use throughout the application
 
     access pattern:
     Application.Singleton.[wantToRead/previouslyRead/dummyBooks]
  */
-class Application: Application() {
-    object Singleton: Application() {
+class Application {
+    object Singleton {
         var wantToRead = ArrayList<Book>()
         var previouslyRead = ArrayList<Book>()
+        var searchResults = ArrayList<Book>()
+        var recommendations = ArrayList<Book>()
+        var recIndex = 0
         val dummyBooks = arrayListOf(
             Book("Red Book", "Red Author", R.color.red),
             Book("Blue Book", "Blue Author", R.color.blue),
