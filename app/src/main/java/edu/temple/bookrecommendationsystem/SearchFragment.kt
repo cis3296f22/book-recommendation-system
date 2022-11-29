@@ -38,8 +38,7 @@ class SearchFragment : Fragment() {
         recyclerView.adapter = SearchAdapter(arrayListOf()) {}
 
         requireView().findViewById<ImageButton>(R.id.search_button).setOnClickListener {
-            val query = requireView().findViewById<EditText>(R.id.search_edit_text).text
-
+            val query = requireView().findViewById<EditText>(R.id.search_edit_text).text.toString()
             val py = Python.getInstance()
             val pyMod = py.getModule("book_Search_refactored")
             val books = pyMod.callAttr("main", query)
