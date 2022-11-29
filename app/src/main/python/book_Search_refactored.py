@@ -56,8 +56,12 @@ def search(query):
     data.pop('ratings')
     data.pop('url')
     data.pop('modified_title')
-    dataFilename = join(files_dir, "data.csv")
-    data_csv = data.to_csv(dataFilename)
-    return data_csv
+    
+    data_csv = data.to_csv("data.csv")
+    
+    search_string = open("data.csv","r")
+    search_string = ' '.join([i for i in search_string])
+    return search_string
+
 
 #RETURNED CSV: book_id, title, ratings (irrelevant), url, image url, modified_title (irrelevant)
