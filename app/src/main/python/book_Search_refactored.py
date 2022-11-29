@@ -44,6 +44,7 @@ def search(query):
     data.pop('ratings')
     data.pop('url')
     data.pop('modified_title')
+    data.pop('book_id')
     
     data_csv = data.to_csv("data.csv")
     
