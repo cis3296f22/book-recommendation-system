@@ -14,10 +14,6 @@ A fragment class to display recommended books to the user that they can "swipe" 
  */
 
 class RecommendationFragment : Fragment() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        //TODO: likely call get_recommendations from here, store in class variable to loop through
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
