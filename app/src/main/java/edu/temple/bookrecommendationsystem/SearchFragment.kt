@@ -38,11 +38,11 @@ class SearchFragment : Fragment() {
         recyclerView.adapter = SearchAdapter(Application.Singleton.searchResults) {}
 
         requireView().findViewById<ImageButton>(R.id.search_button).setOnClickListener {
-            val query = requireView().findViewById<EditText>(R.id.search_edit_text).text
+            val query = requireView().findViewById<EditText>(R.id.search_edit_text).text.toString()
 
-//            val py = Python.getInstance()
-//            val pyMod = py.getModule("book_Search_refactored")
-//            val books = pyMod.callAttr("main", query)
+            val py = Python.getInstance()
+            val pyMod = py.getModule("book_Search_refactored")
+            val books = pyMod.callAttr("main", query)
             //Do this w query list: Application.Singleton.searchResults = query results
             //TODO: make so user cannot put a new line in the search text box
             //TODO: call search w query. parse results and put array in place of Application.Singleton.dummyBooks below
