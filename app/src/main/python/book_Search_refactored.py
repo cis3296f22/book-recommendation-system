@@ -56,6 +56,7 @@ def search(query):
     data.pop('ratings')
     data.pop('url')
     data.pop('modified_title')
+    data.pop('book_id') 
     
     dataFilename = join(dirname(__file__), "data.csv")
     data_csv = data.to_csv(dataFilename)

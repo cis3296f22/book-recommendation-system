@@ -106,6 +106,7 @@ def generate_recs():
     final_recs.pop('ratings')
     final_recs.pop('url')
     final_recs.pop('score')
+    final_recs.pop('book_id') 
     
     finalRecsFilename = join(dirname(__file__), "final_recs.csv")
     final_recs_csv = final_recs.to_csv(finalRecsFilename)
