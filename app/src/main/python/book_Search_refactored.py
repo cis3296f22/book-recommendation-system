@@ -44,6 +44,10 @@ def search(query):
     data.pop('ratings')
     data.pop('url')
     data.pop('modified_title')
+    
     data_csv = data.to_csv("data.csv")
-    return data_csv
+    
+    search_string = open("data.csv","r")
+    search_string = ' '.join([i for i in search_string])
+    return search_string
 
