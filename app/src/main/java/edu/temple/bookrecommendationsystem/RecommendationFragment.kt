@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import com.chaquo.python.Python
 
 /*
 A fragment class to display recommended books to the user that they can "swipe" left or right on.
@@ -23,6 +24,9 @@ class RecommendationFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        //val py = Python.getInstance()
+        //val pyMod = py.getModule("ratings_refactored")
+        //val pyRecs = pyMod.callAttr("generate_recs").toString()
         super.onViewCreated(view, savedInstanceState)
         var count = 0
         var index = 0
