@@ -12,6 +12,7 @@
         android:layout_height="225dp"
         android:id="@+id/recommendation_cover"
         android:layout_gravity="center"
+        android:layout_marginTop="15dp"
         android:layout_marginBottom="15dp"
         tools:src="@tools:sample/avatars"/>
 
@@ -20,20 +21,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/recommendation_title"
         android:text="@string/title"
+        android:layout_marginBottom="35dp"
         android:textSize="36sp"
-        android:layout_gravity="center"
-        />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/recommendation_author"
-        android:text="@string/author"
-        android:textStyle="italic"
-        android:textSize="20sp"
-        android:layout_gravity="center"
-        android:layout_marginBottom="25dp"
-        />
+        android:layout_gravity="center" />
 
     <LinearLayout
         android:layout_width="match_parent"

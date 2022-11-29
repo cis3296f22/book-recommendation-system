@@ -14,12 +14,22 @@ class Application {
         var recommendations = ArrayList<Book>()
         var recIndex = 0
         val dummyBooks = arrayListOf(
-            Book("Red Book", "Red Author", R.color.red),
-            Book("Blue Book", "Blue Author", R.color.blue),
-            Book("Green Book", "Green Author", R.color.green),
-            Book("Yellow Book", "Yellow Author", R.color.yellow),
-            Book("Cyan Book", "Cyan Author", R.color.cyan),
-            Book("Magenta Book", "Magenta Author", R.color.magenta)
+            Book("Red Book", R.color.red),
+            Book("Blue Book", R.color.blue),
+            Book("Green Book", R.color.green),
+            Book("Yellow Book", R.color.yellow),
+            Book("Cyan Book", R.color.cyan),
+            Book("Magenta Book", R.color.magenta)
         )
+
+        val testCSV = "title1,1\ntitle2,2\ntitle3,3"
+        fun csvToBookArray(csv: String) : ArrayList<Book> {
+            val books = ArrayList<Book>()
+            val elements = csv.split(",","\n")
+            for(i in elements.indices step 2) {
+                books.add(Book(elements[i], elements[i+1].toInt()))
+            }
+            return books
+        }
     }
 }

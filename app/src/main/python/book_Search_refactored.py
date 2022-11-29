@@ -1,7 +1,21 @@
 import csv
 import pandas as pd
+from os.path import dirname, join
+from com.chaquo.python import Python
 
-book_titles = pd.read_csv('book_fields.csv')
+book_titles = []
+
+def driver():
+    x = "b_s_refactored"    
+    return x
+    
+def main(query):
+    global book_titles
+    filename = join(dirname(__file__), "book_fields.csv")
+    book_titles = pd.read_csv(filename)
+    book_titles = modify_book_titles(book_titles)
+    x = search(query)
+    return x
 
 def modify_book_titles(book_titles):
     book_titles["ratings"] = pd.to_numeric(book_titles["ratings"])
@@ -11,21 +25,17 @@ def modify_book_titles(book_titles):
     book_titles = book_titles[book_titles["modified_title"].str.len() > 0] # removing blank titles
     return book_titles
 
-book_titles = modify_book_titles(book_titles)
-
 # inverse document frequency minimizes the importance of common words (like the, and, etc.)
 import numpy as np
 import re
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
-
-
 # above is all preliminary to the actual search. it's just preparing the data in the book_fields csv. will probably
 # refactor it out later.
 
-
 # searching for a book by title:
 def search(query):
+    global book_titles
     vectorizer = TfidfVectorizer()
     tfidf = vectorizer.fit_transform(book_titles["modified_title"])
     processed = re.sub("[^a-zA-Z0-9 ]", "", query.lower())
@@ -35,9 +45,11 @@ def search(query):
     results = book_titles.iloc[indices]
     results = results.sort_values("ratings", ascending=False)
 
-    results.head(5).to_csv("results.csv")
+    files_dir = str(Python.getPlatform().getApplication().getFilesDir())
+    resultsFilename = join(files_dir, "results.csv")
+    results_csv = results.head(5).to_csv(resultsFilename)
     
-    data = pd.read_csv('results.csv')
+    data = pd.read_csv(resultsFilename)
     first_column = data.columns[0]
     data = data.drop([first_column], axis=1)
 
@@ -52,3 +64,5 @@ def search(query):
     search_string = ' '.join([i for i in search_string])
     return search_string
 
+
+#RETURNED CSV: book_id, title, ratings (irrelevant), url, image url, modified_title (irrelevant)
