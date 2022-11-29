@@ -47,15 +47,16 @@ class SearchFragment : Fragment() {
         }
 
         requireView().findViewById<ImageButton>(R.id.search_button).setOnClickListener {
-            val query = requireView().findViewById<EditText>(R.id.search_edit_text).text
+            val query = requireView().findViewById<EditText>(R.id.search_edit_text).text.toString()
 
-//            val py = Python.getInstance()
-//            val pyMod = py.getModule("book_Search_refactored")
-//            val books = pyMod.callAttr("main", query)
+            val py = Python.getInstance()
+            val pyMod = py.getModule("book_Search_refactored")
+            val books = pyMod.callAttr("main", query)
             // remove next line during integ
             Application.Singleton.searchResults = Application.Singleton.dummyBooks
             //TODO: call search w query. parse results and assign to Application.Singleton.searchResults
             recyclerView.adapter = SearchAdapter(Application.Singleton.searchResults) {
+
                 val fragment = BookDetailsFragment(0)
                 val bundle = Bundle()
                 bundle.putString("title", it.title)
