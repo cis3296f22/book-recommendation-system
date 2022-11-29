@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.chaquo.python.Python
@@ -24,6 +23,7 @@ class SearchFragment : Fragment() {
         }
     }
 
+
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -35,7 +35,7 @@ class SearchFragment : Fragment() {
 
         val recyclerView = requireView().findViewById<RecyclerView>(R.id.search_results_recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(this.context)
-        recyclerView.adapter = SearchAdapter(arrayListOf()) {}
+        recyclerView.adapter = SearchAdapter(Application.Singleton.searchResults) {}
 
         requireView().findViewById<ImageButton>(R.id.search_button).setOnClickListener {
             val query = requireView().findViewById<EditText>(R.id.search_edit_text).text
@@ -43,6 +43,7 @@ class SearchFragment : Fragment() {
             val py = Python.getInstance()
             val pyMod = py.getModule("book_Search_refactored")
             val books = pyMod.callAttr("main", query)
+            //Do this w query list: Application.Singleton.searchResults = query results
             //TODO: make so user cannot put a new line in the search text box
             //TODO: call search w query. parse results and put array in place of Application.Singleton.dummyBooks below
             recyclerView.adapter = SearchAdapter(Application.Singleton.dummyBooks) {
