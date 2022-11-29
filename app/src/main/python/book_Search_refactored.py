@@ -57,9 +57,10 @@ def search(query):
     data.pop('url')
     data.pop('modified_title')
     
-    data_csv = data.to_csv("data.csv")
+    dataFilename = join(dirname(__file__), "data.csv")
+    data_csv = data.to_csv(dataFilename)
     
-    search_string = open("data.csv","r")
+    search_string = open(dataFilename,"r")
     search_string = ' '.join([i for i in search_string])
     return search_string
 
