@@ -90,7 +90,17 @@ def generate_recs():
     popular_recs = all_recs[all_recs["book_count"] > 75].sort_values("score", ascending=False)
     best_recs = popular_recs[~popular_recs["book_id"].isin(liked_books)].head(25)
     
-    best_recs_csv = best_recs.to_csv("best_recs.csv")
-    return best_recs_csv
+    best_recs.to_csv("best_recs.csv")
+    
+    final_recs = pd.read_csv('best_recs.csv')
+    first_column = final_recs.columns[0]
+    final_recs = final_recs.drop([first_column], axis=1)
+    
+    final_recs.pop('book_count')
+    final_recs.pop('ratings')
+    final_recs.pop('url')
+    final_recs.pop('score')
+    
+    final_recs_csv = final_recs.to_csv("final_recs.csv")
+    return final_recs_csv
 
-#RETURNED CSV: book_id, book_count (irrelevant), title, ratings (irrelevant), url, image url, score (irrelevant)
