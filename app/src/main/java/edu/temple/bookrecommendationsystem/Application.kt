@@ -21,5 +21,15 @@ class Application {
             Book("Cyan Book", R.color.cyan),
             Book("Magenta Book", R.color.magenta)
         )
+
+        val testCSV = "title1,1\ntitle2,2\ntitle3,3"
+        fun csvToBookArray(csv: String) : ArrayList<Book> {
+            val books = ArrayList<Book>()
+            val elements = csv.split(",","\n")
+            for(i in elements.indices step 2) {
+                books.add(Book(elements[i], elements[i+1].toInt()))
+            }
+            return books
+        }
     }
 }
