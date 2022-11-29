@@ -1,9 +1,11 @@
 import csv
 import pandas as pd
+from os.path import dirname, join
 
 # creates a list of the liked books from the liked books csv 
 def generate_liked_books():
-    book_info = pd.read_csv("liked_books.csv")
+    likedBooksFilename = join(dirname(__file__), "liked_books.csv")
+    book_info = pd.read_csv(likedBooksFilename)
     liked_books = book_info['book_id'].tolist()
     for i in range(0, len(liked_books)):
         liked_books[i] = str(liked_books[i])
@@ -13,7 +15,8 @@ def generate_liked_books():
 # maps the simple csv id to the actual book id
 def create_book_mapping():
     book_mapping = {}
-    with open("book_id_map.csv", "r") as f:
+    bookIDMapFilename = join(dirname(__file__), "book_id_map.csv")
+    with open(bookIDMapFilename, "r") as f:
         while True:
             line = f.readline()
             if not line:
@@ -27,7 +30,8 @@ def create_book_mapping():
 def get_overlap_users(liked_books, book_mapping):
     overlap_users = set()
     # overlap_users contains a list of users who liked the books
-    with open("all_interactions.csv", "r") as f:
+    allInteractionsFilename = join(dirname(__file__), "all_interactions.csv")
+    with open(allInteractionsFilename, "r") as f:
         while True:
             line = f.readline()
             if not line:
@@ -49,7 +53,8 @@ def get_overlap_users(liked_books, book_mapping):
 def create_recs(overlap_users, book_mapping):
     recs = []
     # recs contains books that users who liked similar books have read
-    with open("all_interactions.csv", "r") as f:
+    allInteractionsFilename = join(dirname(__file__), "all_interactions.csv")
+    with open(allInteractionsFilename, "r") as f:
         while True:
             line = f.readline()
             if not line:
@@ -90,9 +95,10 @@ def generate_recs():
     popular_recs = all_recs[all_recs["book_count"] > 75].sort_values("score", ascending=False)
     best_recs = popular_recs[~popular_recs["book_id"].isin(liked_books)].head(25)
     
-    best_recs.to_csv("best_recs.csv")
+    bestRecsFilename = join(dirname(__file__), "best_recs.csv")
+    best_recs.to_csv(bestRecsFilename)
     
-    final_recs = pd.read_csv('best_recs.csv')
+    final_recs = pd.read_csv(bestRecsFilename)
     first_column = final_recs.columns[0]
     final_recs = final_recs.drop([first_column], axis=1)
     
@@ -102,9 +108,10 @@ def generate_recs():
     final_recs.pop('score')
     final_recs.pop('book_id') 
     
-    final_recs_csv = final_recs.to_csv("final_recs.csv")
+    finalRecsFilename = join(dirname(__file__), "final_recs.csv")
+    final_recs_csv = final_recs.to_csv(finalRecsFilename)
     
-    ratings_string = open("final_recs.csv","r")
+    ratings_string = open(finalRecsFilename,"r")
     ratings_string = ' '.join([i for i in ratings_string])
     return ratings_string
 
