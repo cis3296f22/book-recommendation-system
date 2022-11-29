@@ -18,7 +18,6 @@ Instance will be created when user clicks on a book from one of their lists or s
 class BookDetailsFragment(_type: Int) : Fragment() {
 
     lateinit var title: String
-    lateinit var author: String
     lateinit var book: Book
     var cover = 0
     var type = _type
@@ -30,9 +29,8 @@ class BookDetailsFragment(_type: Int) : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         title = arguments?.get("title") as String
-        author = arguments?.get("author") as String
         cover = arguments?.get("cover") as Int
-        book = Book(title, author, cover)
+        book = Book(title, cover)
     }
 
     override fun onCreateView(
@@ -99,7 +97,6 @@ class BookDetailsFragment(_type: Int) : Fragment() {
 
         view.findViewById<ImageView>(R.id.details_cover).setImageResource(cover)
         view.findViewById<TextView>(R.id.details_title).text = title
-        view.findViewById<TextView>(R.id.details_author).text = author
         view.findViewById<Button>(R.id.details_close_button).setOnClickListener {
             parentFragmentManager.popBackStack()
         }

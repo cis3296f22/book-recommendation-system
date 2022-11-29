@@ -2,7 +2,6 @@
     <string name="app_name">Book Recommendation System</string>
     <string name="book_recommendation_system">Book Recommendation System!</string>
     <string name="title">Title</string>
-    <string name="author">Author</string>
     <string name="button1">BUTTON1</string>
     <string name="button2">BUTTON2</string>
     <string name="back">BACK</string>
