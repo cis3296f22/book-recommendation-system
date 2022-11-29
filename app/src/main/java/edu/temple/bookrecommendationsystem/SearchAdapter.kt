@@ -20,7 +20,6 @@ class SearchAdapter(_results : ArrayList<Book>, _onClickFunc : (Book) -> Unit) :
     inner class ImageViewHolder(_view : View) : RecyclerView.ViewHolder(_view){
         val bookCover = _view.findViewById<ImageView>(R.id.search_result_book_cover)!!
         val bookTitle = _view.findViewById<TextView>(R.id.search_result_title)!!
-        val bookAuthor = _view.findViewById<TextView>(R.id.search_result_author)!!
         lateinit var book: Book
         init {
             _view.setOnClickListener{onClickFunction(book)}
@@ -36,7 +35,6 @@ class SearchAdapter(_results : ArrayList<Book>, _onClickFunc : (Book) -> Unit) :
     override fun onBindViewHolder(holder: SearchAdapter.ImageViewHolder, position: Int) {
         holder.bookCover.setImageResource(results[position].coverURL)
         holder.bookTitle.text = results[position].title
-        holder.bookAuthor.text = results[position].author
         holder.book = results[position]
     }
 
