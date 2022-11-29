@@ -1,7 +1,5 @@
 package edu.temple.bookrecommendationsystem
 
-import android.util.Log
-
 /*
     class to store global variables to use throughout the application
 
