@@ -102,5 +102,8 @@ def generate_recs():
     final_recs.pop('score')
     
     final_recs_csv = final_recs.to_csv("final_recs.csv")
-    return final_recs_csv
+    
+    ratings_string = open("final_recs.csv","r")
+    ratings_string = ' '.join([i for i in ratings_string])
+    return ratings_string
 
