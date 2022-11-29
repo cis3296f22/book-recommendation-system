@@ -33,7 +33,6 @@ class BookListsFragment : Fragment() {
             val fragment = BookDetailsFragment(1)
             val bundle = Bundle()
             bundle.putString("title", it.title)
-            bundle.putString("author", it.author)
             bundle.putInt("cover", it.coverURL)
             fragment.arguments = bundle
             parentFragmentManager.beginTransaction()
@@ -49,7 +48,6 @@ class BookListsFragment : Fragment() {
             val fragment = BookDetailsFragment(2)
             val bundle = Bundle()
             bundle.putString("title", it.title)
-            bundle.putString("author", it.author)
             bundle.putInt("cover", it.coverURL)
             fragment.arguments = bundle
             parentFragmentManager.beginTransaction()

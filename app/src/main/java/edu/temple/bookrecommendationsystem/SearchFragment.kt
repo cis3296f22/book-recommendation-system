@@ -40,9 +40,9 @@ class SearchFragment : Fragment() {
         requireView().findViewById<ImageButton>(R.id.search_button).setOnClickListener {
             val query = requireView().findViewById<EditText>(R.id.search_edit_text).text
 
-            val py = Python.getInstance()
-            val pyMod = py.getModule("book_Search_refactored")
-            val books = pyMod.callAttr("main", query)
+//            val py = Python.getInstance()
+//            val pyMod = py.getModule("book_Search_refactored")
+//            val books = pyMod.callAttr("main", query)
             //Do this w query list: Application.Singleton.searchResults = query results
             //TODO: make so user cannot put a new line in the search text box
             //TODO: call search w query. parse results and put array in place of Application.Singleton.dummyBooks below
@@ -50,7 +50,6 @@ class SearchFragment : Fragment() {
                 val fragment = BookDetailsFragment(0)
                 val bundle = Bundle()
                 bundle.putString("title", it.title)
-                bundle.putString("author", it.author)
                 bundle.putInt("cover", it.coverURL)
                 fragment.arguments = bundle
                 parentFragmentManager.beginTransaction()

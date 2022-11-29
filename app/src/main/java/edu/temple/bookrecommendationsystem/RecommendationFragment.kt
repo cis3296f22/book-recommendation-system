@@ -28,21 +28,18 @@ class RecommendationFragment : Fragment() {
         var index = 0
         val cover = requireView().findViewById<ImageView>(R.id.recommendation_cover)
         val title = requireView().findViewById<TextView>(R.id.recommendation_title)
-        val author = requireView().findViewById<TextView>(R.id.recommendation_author)
         val app = Application.Singleton
         val dummyBooks = app.dummyBooks
         val want = app.wantToRead
         val prev = app.previouslyRead
         cover.setImageResource(dummyBooks[count].coverURL)
         title.text = dummyBooks[count].title
-        author.text = dummyBooks[count].author
 
         requireView().findViewById<Button>(R.id.dislike_button).setOnClickListener {
             count++
             index = count % dummyBooks.size
             cover.setImageResource(dummyBooks[index].coverURL)
             title.text = dummyBooks[index].title
-            author.text = dummyBooks[index].author
         }
 
         requireView().findViewById<Button>(R.id.like_button).setOnClickListener {
@@ -51,7 +48,6 @@ class RecommendationFragment : Fragment() {
             index = count % dummyBooks.size
             cover.setImageResource(dummyBooks[index].coverURL)
             title.text = dummyBooks[index].title
-            author.text = dummyBooks[index].author
         }
 
         requireView().findViewById<Button>(R.id.prev_read_button).setOnClickListener {
@@ -60,7 +56,6 @@ class RecommendationFragment : Fragment() {
             index = count % dummyBooks.size
             cover.setImageResource(dummyBooks[index].coverURL)
             title.text = dummyBooks[index].title
-            author.text = dummyBooks[index].author
         }
 
     }

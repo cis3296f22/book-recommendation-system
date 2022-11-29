@@ -14,12 +14,12 @@ class Application {
         var recommendations = ArrayList<Book>()
         var recIndex = 0
         val dummyBooks = arrayListOf(
-            Book("Red Book", "Red Author", R.color.red),
-            Book("Blue Book", "Blue Author", R.color.blue),
-            Book("Green Book", "Green Author", R.color.green),
-            Book("Yellow Book", "Yellow Author", R.color.yellow),
-            Book("Cyan Book", "Cyan Author", R.color.cyan),
-            Book("Magenta Book", "Magenta Author", R.color.magenta)
+            Book("Red Book", R.color.red),
+            Book("Blue Book", R.color.blue),
+            Book("Green Book", R.color.green),
+            Book("Yellow Book", R.color.yellow),
+            Book("Cyan Book", R.color.cyan),
+            Book("Magenta Book", R.color.magenta)
         )
     }
 }
