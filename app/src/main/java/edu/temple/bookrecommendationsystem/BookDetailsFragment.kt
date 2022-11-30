@@ -22,8 +22,8 @@ Instance will be created when user clicks on a book from one of their lists or s
 class BookDetailsFragment(_type: Int) : Fragment() {
 
     lateinit var title: String
+    lateinit var cover: String
     lateinit var book: Book
-    var cover = 0
     var type = _type
     // 0 = search; 1 = want; 2 = prev
     // search - button1 = read, button2 = want
@@ -33,7 +33,7 @@ class BookDetailsFragment(_type: Int) : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         title = arguments?.get("title") as String
-        cover = arguments?.get("cover") as Int
+        cover = arguments?.get("cover") as String
         book = Book(title, cover)
     }
 
@@ -99,8 +99,8 @@ class BookDetailsFragment(_type: Int) : Fragment() {
             }
         }
 
-        view.findViewById<ImageView>(R.id.details_cover).setImageResource(cover)
-        Picasso.get().load("https://images.gr-assets.com/books/1333576379m/820816.jpg").into(view.findViewById<ImageView>(R.id.details_cover))
+        Application.Singleton.loadImage(cover,view.findViewById(R.id.details_cover))
+
         view.findViewById<TextView>(R.id.details_title).text = title
         view.findViewById<Button>(R.id.details_close_button).setOnClickListener {
             parentFragmentManager.popBackStack()
