@@ -24,42 +24,37 @@ class RecommendationFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        //val py = Python.getInstance()
-        //val pyMod = py.getModule("ratings_refactored")
-        //val pyRecs = pyMod.callAttr("generate_recs").toString()
         super.onViewCreated(view, savedInstanceState)
-        var count = 0
-        var index = 0
+        val py = Python.getInstance()
+        val pyMod = py.getModule("ratings_refactored")
+        val pyRecs = Application.Singleton.csvToBookArray(pyMod.callAttr("generate_recs").toString())
+        Application.Singleton.recommendations = pyRecs
         val cover = requireView().findViewById<ImageView>(R.id.recommendation_cover)
         val title = requireView().findViewById<TextView>(R.id.recommendation_title)
         val app = Application.Singleton
-        val dummyBooks = app.dummyBooks
         val want = app.wantToRead
         val prev = app.previouslyRead
-        cover.setImageResource(dummyBooks[count].coverURL)
-        title.text = dummyBooks[count].title
+        Application.Singleton.loadImage(Application.Singleton.recommendations[Application.Singleton.recIndex].coverURL, cover)
+        title.text = Application.Singleton.recommendations[Application.Singleton.recIndex].title
 
         requireView().findViewById<Button>(R.id.dislike_button).setOnClickListener {
-            count++
-            index = count % dummyBooks.size
-            cover.setImageResource(dummyBooks[index].coverURL)
-            title.text = dummyBooks[index].title
+            Application.Singleton.recIndex++
+            Application.Singleton.loadImage(Application.Singleton.recommendations[Application.Singleton.recIndex].coverURL, cover)
+            title.text = Application.Singleton.recommendations[Application.Singleton.recIndex].title
         }
 
         requireView().findViewById<Button>(R.id.like_button).setOnClickListener {
-            want.add(dummyBooks[index])
-            count++
-            index = count % dummyBooks.size
-            cover.setImageResource(dummyBooks[index].coverURL)
-            title.text = dummyBooks[index].title
+            want.add(pyRecs[Application.Singleton.recIndex])
+            Application.Singleton.recIndex++
+            Application.Singleton.loadImage(Application.Singleton.recommendations[Application.Singleton.recIndex].coverURL, cover)
+            title.text = Application.Singleton.recommendations[Application.Singleton.recIndex].title
         }
 
         requireView().findViewById<Button>(R.id.prev_read_button).setOnClickListener {
-            prev.add(dummyBooks[index])
-            count++
-            index = count % dummyBooks.size
-            cover.setImageResource(dummyBooks[index].coverURL)
-            title.text = dummyBooks[index].title
+            prev.add(pyRecs[Application.Singleton.recIndex])
+            Application.Singleton.recIndex++
+            Application.Singleton.loadImage(Application.Singleton.recommendations[Application.Singleton.recIndex].coverURL, cover)
+            title.text = Application.Singleton.recommendations[Application.Singleton.recIndex].title
         }
 
     }
