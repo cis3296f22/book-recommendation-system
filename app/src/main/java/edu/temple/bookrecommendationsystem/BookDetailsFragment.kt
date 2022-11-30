@@ -105,11 +105,6 @@ class BookDetailsFragment(_type: Int) : Fragment() {
         view.findViewById<Button>(R.id.details_close_button).setOnClickListener {
             parentFragmentManager.popBackStack()
         }
-        val myImage: ImageView = view.findViewById<ImageView>(R.id.details_cover)
-        val x:Bitmap? = Application.Singleton.imagePull("https://images.gr-assets.com/books/1333576379m/820816.jpg")
-        view.findViewById<ImageView>(R.id.details_cover).setImageBitmap(x)
-        Application.Singleton.imagePullAlpha("https://images.gr-assets.com/books/1333576379m/820816.jpg", view.findViewById<ImageView>(R.id.details_cover))
-        Glide.with(this).load("https://images.gr-assets.com/books/1333576379m/820816.jpg").into(myImage)
     }
 
 }
