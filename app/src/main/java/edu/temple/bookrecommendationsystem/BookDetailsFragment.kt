@@ -95,7 +95,7 @@ class BookDetailsFragment(_type: Int) : Fragment() {
             }
         }
 
-        view.findViewById<ImageView>(R.id.details_cover).setImageResource(cover)
+        Application.Singleton.loadImage("https://images.gr-assets.com/books/1333576379m/820816.jpg",view.findViewById(R.id.details_cover))
         view.findViewById<TextView>(R.id.details_title).text = title
         view.findViewById<Button>(R.id.details_close_button).setOnClickListener {
             parentFragmentManager.popBackStack()
