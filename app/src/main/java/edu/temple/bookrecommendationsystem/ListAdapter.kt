@@ -31,7 +31,7 @@ class ListAdapter(_results: ArrayList<Book>, _onClickFunc: (Book) -> Unit) :
     }
 
     override fun onBindViewHolder(holder: ListAdapter.ImageViewHolder, position: Int) {
-        Application.Singleton.loadImage(results[position].coverURL, holder.bookCover)
+        holder.bookCover.setImageResource(results[position].coverURL)
         holder.book = results[position]
     }
 

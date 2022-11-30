@@ -22,7 +22,7 @@
         android:id="@+id/recommendation_title"
         android:text="@string/title"
         android:layout_marginBottom="35dp"
-        android:textSize="30sp"
+        android:textSize="36sp"
         android:layout_gravity="center" />
 
     <LinearLayout
