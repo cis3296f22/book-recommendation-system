@@ -1,4 +1,19 @@
 <resources>
     <string name="app_name">Book Recommendation System</string>
     <string name="book_recommendation_system">Book Recommendation System!</string>
+    <string name="title">Title</string>
+    <string name="button1">BUTTON1</string>
+    <string name="button2">BUTTON2</string>
+    <string name="back">BACK</string>
+    <string name="previously_read">Previously Read</string>
+    <string name="want_to_read">Want to Read</string>
+    <string name="not_interested">NOT INTERESTED</string>
+    <string name="want_to_read_caps">WANT TO READ</string>
+    <string name="previously_read_caps">PREVIOUSLY READ</string>
+    <string name="search">Search</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="search_toolbar">SEARCH</string>
+    <string name="recs_toolbar">RECS</string>
+    <string name="lists_toolbar">LISTS</string>
+    <string name="settings_toolbar">SETTINGS</string>
 </resources>
