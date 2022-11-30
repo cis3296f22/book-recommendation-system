@@ -9,9 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.squareup.picasso.Picasso
-import android.graphics.Bitmap
-import com.bumptech.glide.Glide
+
 
 
 /*
