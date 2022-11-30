@@ -16,21 +16,12 @@ class Application {
         var searchResults = ArrayList<Book>()
         var recommendations = ArrayList<Book>()
         var recIndex = 0
-        val dummyBooks = arrayListOf(
-            Book("Red Book", R.color.red),
-            Book("Blue Book", R.color.blue),
-            Book("Green Book", R.color.green),
-            Book("Yellow Book", R.color.yellow),
-            Book("Cyan Book", R.color.cyan),
-            Book("Magenta Book", R.color.magenta)
-        )
 
-        val testCSV = ",title,cover\n1,title_d,www.google.com\n2,title_w,www.google.com\n3,title_e,www.google.com"
         fun csvToBookArray(csv: String) : ArrayList<Book> {
             val books = ArrayList<Book>()
             val elements = csv.replace("[0-9]+,".toRegex(),"").split(",","\n")
             for(i in 3 until elements.size step 2) {
-                books.add(Book(elements[i], elements[i+1].toInt()))
+                books.add(Book(elements[i], elements[i+1]))
             }
             return books
         }

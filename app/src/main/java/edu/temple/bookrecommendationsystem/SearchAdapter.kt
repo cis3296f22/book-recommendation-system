@@ -33,7 +33,7 @@ class SearchAdapter(_results : ArrayList<Book>, _onClickFunc : (Book) -> Unit) :
     }
 
     override fun onBindViewHolder(holder: SearchAdapter.ImageViewHolder, position: Int) {
-        holder.bookCover.setImageResource(results[position].coverURL)
+        Application.Singleton.loadImage(results[position].coverURL, holder.bookCover)
         holder.bookTitle.text = results[position].title
         holder.book = results[position]
     }
