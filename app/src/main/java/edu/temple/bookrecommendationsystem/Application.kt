@@ -1,5 +1,6 @@
 package edu.temple.bookrecommendationsystem
 
+import android.util.Log
 import android.widget.ImageView
 import com.squareup.picasso.Picasso
 
@@ -19,9 +20,12 @@ class Application {
 
         fun csvToBookArray(csv: String) : ArrayList<Book> {
             val books = ArrayList<Book>()
-            val elements = csv.replace("[0-9]+,".toRegex(),"").split(",","\n")
-            for(i in 3 until elements.size step 2) {
-                books.add(Book(elements[i], elements[i+1]))
+            var url : String
+            val elements = csv.replace("[0-9]+,".toRegex(),"").split(",http","\n")
+            Log.d("Elements: ", elements.toString())
+            for(i in 3 until elements.size - 1 step 2) {
+                url = "http" + elements[i+1]
+                books.add(Book(elements[i], url))
             }
             return books
         }
