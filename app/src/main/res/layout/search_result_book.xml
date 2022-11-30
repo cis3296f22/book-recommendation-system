@@ -15,7 +15,7 @@
         android:id="@+id/search_result_title"
         android:layout_gravity="center"
         android:layout_marginStart="10dp"
-        android:textSize="24sp"
+        android:textSize="28sp"
         android:text="@string/title" />
 
 </LinearLayout>
