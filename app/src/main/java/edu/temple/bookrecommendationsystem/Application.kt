@@ -1,8 +1,10 @@
 package edu.temple.bookrecommendationsystem
 
+
 import android.util.Log
 import android.widget.ImageView
 import com.squareup.picasso.Picasso
+
 
 /*
     class to store global variables to use throughout the application
@@ -32,6 +34,7 @@ class Application {
 
         fun loadImage(url: String, imageView: ImageView) {
             Picasso.get().load(url).into(imageView)
+
         }
     }
 }
