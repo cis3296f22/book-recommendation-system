@@ -19,13 +19,6 @@ A fragment class to display recommended books to the user that they can "swipe" 
 
 class RecommendationFragment : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        if (!Python.isStarted()) {
-            Python.start(Python.getPlatform())
-        }
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
