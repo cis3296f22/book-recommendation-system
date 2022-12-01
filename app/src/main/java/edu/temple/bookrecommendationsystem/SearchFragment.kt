@@ -10,11 +10,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.chaquo.python.Python
 
-/*
-A fragment class containing a search bar that will send a query to our database and return the top
-results for the user to view.
- */
 
+/**
+ * Search fragment
+ * A fragment class containing a search bar that will send a query to our database and return the top
+ * results for the user to view.
+ *
+ * @constructor Create Search fragment
+ */
 class SearchFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,12 +27,30 @@ class SearchFragment : Fragment() {
     }
 
 
+    /**
+     * On create view
+     *
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_search, container, false)
     }
 
+    /**
+     * On view created
+     * Creates the search bar and search button
+     * When the search button is clicked, populates the Application Singleton searchResults
+     * ArrayList with search results from the relevant python file
+     * Displays the search results
+     *
+     * @param view
+     * @param savedInstanceState
+     */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val recyclerView = requireView().findViewById<RecyclerView>(R.id.search_results_recycler_view)

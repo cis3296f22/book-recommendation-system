@@ -13,12 +13,23 @@ import android.widget.TextView
 import com.chaquo.python.Python
 import kotlinx.coroutines.*
 
-/*
-A fragment class to display recommended books to the user that they can "swipe" left or right on.
- */
 
+/**
+ * Recommendation fragment
+ * A fragment class to display recommended books to the user that they can "swipe" left or right on.
+ *
+ * @constructor Create empty Recommendation fragment
+ */
 class RecommendationFragment : Fragment() {
 
+    /**
+     * On create view
+     *
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -26,6 +37,16 @@ class RecommendationFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_recommendation, container, false)
     }
 
+    /**
+     * On view created
+     * Creates buttons for user interaction, dislike, like, or have read
+     * Checks the Application Singleton recommendations ArrayList
+     * if empty it displays a load screen and calls the python file to generate recommendations
+     * else displays the recommendation
+     *
+     * @param view
+     * @param savedInstanceState
+     */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -84,6 +105,11 @@ class RecommendationFragment : Fragment() {
         }
     }
 
+    /**
+     * Fetch recs
+     *
+     * @return an ArrayList of Book objects using Application.Singleton.csvToBookArray
+     */
     private fun fetchRecs() : ArrayList<Book> {
         val py = Python.getInstance()
         val pyMod = py.getModule("ratings_refactored")

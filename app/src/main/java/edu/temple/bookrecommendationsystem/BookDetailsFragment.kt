@@ -12,11 +12,13 @@ import androidx.fragment.app.Fragment
 
 
 
-/*
-A fragment class to display a book cover, title, author, and user rating (if given).
-Instance will be created when user clicks on a book from one of their lists or search results.
+/**
+ * Book details fragment
+ * A fragment class to display a book cover, title, author, and user rating (if given).
+ * Instance will be created when user clicks on a book from one of their lists or search results.
+ *
+ * @param _type
  */
-
 class BookDetailsFragment(_type: Int) : Fragment() {
 
     lateinit var title: String
@@ -28,6 +30,11 @@ class BookDetailsFragment(_type: Int) : Fragment() {
     // want - button1 = remove, button2 = prev
     // prev - button1 = remove, button2 = want
 
+    /**
+     * On create
+     *
+     * @param savedInstanceState
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         title = arguments?.get("title") as String
@@ -35,6 +42,14 @@ class BookDetailsFragment(_type: Int) : Fragment() {
         book = Book(title, cover)
     }
 
+    /**
+     * On create view
+     *
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -43,6 +58,14 @@ class BookDetailsFragment(_type: Int) : Fragment() {
         return inflater.inflate(R.layout.fragment_book_details, container, false)
     }
 
+    /**
+     * On view created
+     * Creates the buttons and updates the text on each
+     * Sets setOnClickListeners to update Book ArrayLists from the Application Singleton
+     *
+     * @param view
+     * @param savedInstanceState
+     */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val button1 = view.findViewById<Button>(R.id.details_button_1)

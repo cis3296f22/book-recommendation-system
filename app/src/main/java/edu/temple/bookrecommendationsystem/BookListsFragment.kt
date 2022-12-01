@@ -8,13 +8,24 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-/*
-A fragment class that composes the Lists tab in the application and contains two BookListFragments -
-"Want to Read" and "Previously Read"
- */
 
+/**
+ * Book lists fragment
+ * A fragment class that composes the Lists tab in the application and contains two BookListFragments -
+ * "Want to Read" and "Previously Read"
+ *
+ * @constructor Create Book lists fragment
+ */
 class BookListsFragment : Fragment() {
 
+    /**
+     * On create view
+     *
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return the fragment which displays to screen
+     */
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -23,6 +34,14 @@ class BookListsFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_book_lists, container, false)
     }
 
+    /**
+     * On view created
+     * Creates and populates RecyclerViews for books the user wants
+     * to read and the books the user has already read
+     *
+     * @param view
+     * @param savedInstanceState
+     */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

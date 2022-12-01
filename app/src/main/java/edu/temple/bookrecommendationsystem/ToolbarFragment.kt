@@ -7,16 +7,32 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 
-/*
-A fragment class that is always present when the application is running. Allows user to switch
-between the Search, Recommendations, Lists, and Settings fragments to interact with the application.
- */
 
+/**
+ * Toolbar fragment
+ * A fragment class that is always present when the application is running. Allows user to switch
+ * between the Search, Recommendations, Lists, and Settings fragments to interact with the application.
+ *
+ * @constructor Create Toolbar fragment
+ */
 class ToolbarFragment : Fragment() {
+    /**
+     * On create
+     *
+     * @param savedInstanceState
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
 
+    /**
+     * On create view
+     *
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -24,6 +40,14 @@ class ToolbarFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_toolbar, container, false)
     }
 
+    /**
+     * On view created
+     * Populates the fragment with buttons for the Search fragment,
+     * the Recommendations fragment, the Lists fragment, and the Settings fragment
+     *
+     * @param view
+     * @param savedInstanceState
+     */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         view.findViewById<Button>(R.id.recsButton).setOnClickListener {
