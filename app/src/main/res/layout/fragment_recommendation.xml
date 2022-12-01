@@ -51,6 +51,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/prev_read_button"
         android:layout_gravity="center"
-        android:text="@string/previously_read_caps" />
+        android:text="@string/read_and_enjoyed" />
 
 </LinearLayout>
